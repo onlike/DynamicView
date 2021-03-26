@@ -1,0 +1,143 @@
+{
+  "template": {
+    "viewTree": {
+      "tag": "frame_1",
+      "type": 1003,
+      "width": -2,
+      "height": 16.25,
+      "selfGravity": 0,
+      "layoutGravity": 0,
+      "topMargin": 0.5,
+      "leftMargin": 2,
+      "bottomMargin": 0.5,
+      "rightMargin": 2,
+      "bgColor": "",
+      "parentType": 1003,
+      "child": [
+        {
+          "tag": "linear_1",
+          "type": 1004,
+          "width": 60,
+          "height": -2,
+          "selfGravity": 0,
+          "layoutGravity": 3101,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 1.4,
+          "rightMargin": 0,
+          "bgColor": "#ffffff",
+          "parentType": 1003,
+          "orientation": 3201,
+          "child": [
+            {
+              "tag": "text_1",
+              "type": 1001,
+              "width": -2,
+              "height": -1,
+              "selfGravity": 0,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 0,
+              "bgColor": "",
+              "parentType": 1004,
+              "fontName": "",
+              "textColor": "#000000",
+              "textSize": 18,
+              "maxLines": 2
+            },
+            {
+              "tag": "text_2",
+              "type": 1001,
+              "width": -2,
+              "height": -2,
+              "selfGravity": 3103,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 0,
+              "bgColor": "",
+              "parentType": 1004,
+              "fontName": "",
+              "textColor": "#999999",
+              "textSize": 14,
+              "maxLines": 1
+            }
+          ]
+        },
+        {
+          "tag": "linear_2",
+          "type": 1004,
+          "width": 30,
+          "height": -2,
+          "selfGravity": 0,
+          "layoutGravity": 3104,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 1.4,
+          "rightMargin": 0,
+          "parentType": 1003,
+          "orientation": 3201,
+          "child": [
+            {
+              "tag": "image_1",
+              "type": 1002,
+              "width": -2,
+              "height": -2,
+              "selfGravity": 0,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 0,
+              "bgColor": "#999999",
+              "parentType": 1004,
+              "scaleType": 3301
+            }
+          ]
+        },
+        {
+          "tag": "linear_3",
+          "type": 1004,
+          "width": -2,
+          "height": 0.08,
+          "selfGravity": 0,
+          "layoutGravity": 3103,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "parentType": 1003,
+          "orientation": 3201,
+          "bgColor": "#999999",
+          "child": []
+        }
+      ]
+    },
+    "treeTag": "left_text_right_image"
+  },
+  "properties": {
+    "data": {
+      "text_1": {
+        "textContent": "两会四下团组，习近平这些话直抵人心"
+      },
+      "text_2": {
+        "textContent": "人民日报客户端 1天前 221评"
+      },
+      "image_1": {
+        "imgSource": "https://rmrbcmsonline.peopleapp.com/upload/image/202103/rmrb_16261615392110.png?x-oss-process=image/resize,m_fill,h_170,w_226/quality,q_90/format,jpg"
+      }
+    },
+    "event": {
+      "frame_1": [
+        "dyv:statistics",
+        "dyv:navigationDetails"
+      ],
+      "text_1": [
+        "dyv:toast"
+      ]
+    }
+  }
+}

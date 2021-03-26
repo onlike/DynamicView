@@ -1,0 +1,163 @@
+{
+  "template": {
+    "viewTree": {
+      "tag": "linear_1",
+      "type": 1004,
+      "width": -2,
+      "height": -1,
+      "selfGravity": 0,
+      "layoutGravity": 0,
+      "topMargin": 0.05,
+      "leftMargin": 2,
+      "bottomMargin": 0.5,
+      "rightMargin": 2,
+      "bgColor": "",
+      "parentType": 1003,
+      "orientation": 3201,
+      "child": [
+        {
+          "tag": "text_1",
+          "type": 1001,
+          "width": -2,
+          "height": -1,
+          "selfGravity": 0,
+          "layoutGravity": 0,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "bgColor": "",
+          "parentType": 1004,
+          "fontName": "",
+          "textColor": "#000000",
+          "textSize": 18,
+          "maxLines": 2
+        },
+        {
+          "tag": "linear_2",
+          "type": 1004,
+          "width": -2,
+          "height": 16,
+          "selfGravity": 0,
+          "layoutGravity": 0,
+          "topMargin": 1,
+          "leftMargin": 0,
+          "bottomMargin": 1,
+          "rightMargin": 0,
+          "parentType": 1004,
+          "orientation": 3202,
+          "child": [
+            {
+              "tag": "image_1",
+              "type": 1002,
+              "width": 30,
+              "height": -2,
+              "selfGravity": 0,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 3,
+              "bgColor": "#999999",
+              "parentType": 1004,
+              "scaleType": 3301
+            },
+            {
+              "tag": "image_2",
+              "type": 1002,
+              "width": 30,
+              "height": -2,
+              "selfGravity": 0,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 3,
+              "bgColor": "#999999",
+              "parentType": 1004,
+              "scaleType": 3301
+            },
+            {
+              "tag": "image_3",
+              "type": 1002,
+              "width": 30,
+              "height": -2,
+              "selfGravity": 0,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 0,
+              "bgColor": "#999999",
+              "parentType": 1004,
+              "scaleType": 3301
+            }
+          ]
+        },
+        {
+          "tag": "text_2",
+          "type": 1001,
+          "width": -2,
+          "height": -2,
+          "selfGravity": 3103,
+          "layoutGravity": 0,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "bgColor": "",
+          "parentType": 1004,
+          "fontName": "",
+          "textColor": "#999999",
+          "textSize": 14,
+          "maxLines": 1
+        },
+        {
+          "tag": "linear_3",
+          "type": 1004,
+          "width": -2,
+          "height": 0.08,
+          "selfGravity": 0,
+          "layoutGravity": 0,
+          "topMargin": 1,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "parentType": 1004,
+          "orientation": 3201,
+          "bgColor": "#999999",
+          "child": []
+        }
+      ]
+    },
+    "treeTag": "three_image"
+  },
+  "properties": {
+    "data": {
+      "text_1": {
+        "textContent": "今天是2021314，这些新人领证"
+      },
+      "text_2": {
+        "textContent": "澎湃新闻 52评"
+      },
+      "image_1": {
+        "imgSource": "https://rmrbcmsonline.peopleapp.com/upload/image/202103/rmrb_29111615709432.png?x-oss-process=style/w10"
+      },
+      "image_2": {
+        "imgSource": "https://rmrbcmsonline.peopleapp.com/upload/image/202103/rmrb_54531615709439.png?x-oss-process=style/w10"
+      },
+      "image_3": {
+        "imgSource": "https://rmrbcmsonline.peopleapp.com/upload/image/202103/rmrb_72461615709441.png?x-oss-process=style/w10"
+      }
+    },
+    "event": {
+      "linear_1": [
+        "dyv:statistics",
+        "dyv:navigationDetails"
+      ],
+      "text_1": [
+        "dyv:toast"
+      ]
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "template": {
+    "viewTree": {
+      "tag": "linear_1",
+      "type": 1004,
+      "width": -2,
+      "height": -1,
+      "selfGravity": 0,
+      "layoutGravity": 0,
+      "topMargin": 0.5,
+      "leftMargin": 2,
+      "bottomMargin": 0.5,
+      "rightMargin": 2,
+      "bgColor": "",
+      "parentType": 1003,
+      "orientation": 3201,
+      "child": [
+        {
+          "tag": "text_1",
+          "type": 1001,
+          "width": -2,
+          "height": -1,
+          "selfGravity": 0,
+          "layoutGravity": 0,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "bgColor": "",
+          "parentType": 1004,
+          "fontName": "",
+          "textColor": "#000000",
+          "textSize": 18,
+          "maxLines": 2
+        },
+        {
+          "tag": "text_2",
+          "type": 1001,
+          "width": -2,
+          "height": -2,
+          "selfGravity": 3103,
+          "layoutGravity": 0,
+          "topMargin": 0,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "bgColor": "",
+          "parentType": 1004,
+          "fontName": "",
+          "textColor": "#999999",
+          "textSize": 14,
+          "maxLines": 1
+        },
+        {
+          "tag": "frame_1",
+          "type": 1003,
+          "width": -2,
+          "height": -1,
+          "selfGravity": 0,
+          "layoutGravity": 0,
+          "topMargin": 1,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "parentType": 1003,
+          "orientation": 3202,
+          "child": [
+            {
+              "tag": "image_1",
+              "type": 1002,
+              "width": -2,
+              "height": 28,
+              "selfGravity": 0,
+              "layoutGravity": 0,
+              "topMargin": 0,
+              "leftMargin": 0,
+              "bottomMargin": 0,
+              "rightMargin": 0,
+              "bgColor": "#999999",
+              "parentType": 1003,
+              "scaleType": 3301
+            },
+            {
+              "tag": "text_3",
+              "type": 1001,
+              "width": -1,
+              "height": -1,
+              "selfGravity": 3103,
+              "layoutGravity": 3104,
+              "topMargin": 24,
+              "leftMargin": 3,
+              "bottomMargin": 0,
+              "rightMargin": 3,
+              "bgColor": "#75000000",
+              "topPadding": 0.3,
+              "leftPadding": 2,
+              "bottomPadding": 0.3,
+              "rightPadding": 2,
+              "parentType": 1003,
+              "scaleType": 3301,
+              "fontName": "",
+              "textColor": "#eeeeee",
+              "textSize": 14,
+              "maxLines": 0
+            }
+          ]
+        },
+        {
+          "tag": "linear_3",
+          "type": 1004,
+          "width": -2,
+          "height": 0.08,
+          "selfGravity": 0,
+          "layoutGravity": 0,
+          "topMargin": 1,
+          "leftMargin": 0,
+          "bottomMargin": 0,
+          "rightMargin": 0,
+          "parentType": 1004,
+          "orientation": 3201,
+          "bgColor": "#999999",
+          "child": []
+        }
+      ]
+    },
+    "treeTag": "big_image"
+  },
+  "properties": {
+    "data": {
+      "text_1": {
+        "textContent": "超梦幻！ 唯美武汉樱花大片"
+      },
+      "text_2": {
+        "textContent": "人民日报客户端"
+      },
+      "text_3": {
+        "textContent": "直播中 1078人观看"
+      },
+      "image_1": {
+        "imgSource": "https://rmrbcmsonline.peopleapp.com/rb_recsys/img/2021/0312/f89e120ce424741d51c8f1c72ae5dbe5_554875931282370560.jpeg?x-oss-process=image/resize,m_fill,h_422,w_750/quality,q_90/auto-orient,1"
+      }
+    },
+    "event": {
+      "linear_1": [
+        "dyv:statistics",
+        "dyv:navigationDetails"
+      ],
+      "image_1": [
+        "dyv:toast"
+      ],
+      "text_3": [
+        "dyv:deleteItem"
+      ]
+    }
+  }
+}
