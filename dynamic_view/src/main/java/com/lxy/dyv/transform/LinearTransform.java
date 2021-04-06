@@ -1,7 +1,6 @@
 package com.lxy.dyv.transform;
 
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
@@ -69,14 +68,6 @@ public class LinearTransform extends ContainerTransform{
 
     @Override
     void bindData() {
-
-//        if (DyvHelper.isNull(linearLayout)) return;
-//
-//        if (DyvHelper.isNull(virtualView)) return;
-//
-//        if (virtualView instanceof LinearContainer) {
-//            TransformHelper.bindSpecialProperties(linearLayout, virtualView, viewData);
-//        }
     }
 
     @Override

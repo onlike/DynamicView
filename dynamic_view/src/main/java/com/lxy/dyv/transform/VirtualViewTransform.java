@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.lxy.dyv.DyvHelper;
 import com.lxy.dyv.IEventTouchCallback;
+import com.lxy.dyv.IViewBindCallback;
 import com.lxy.dyv.data.Data;
 import com.lxy.dyv.event.Event;
 import com.lxy.dyv.tree.DataTree;
@@ -20,7 +21,7 @@ import java.util.HashMap;
  * created on: 2021/2/19 6:02 PM
  * <p>
  */
-public final class VirtualViewTransform implements TransformCreator.OnCreateCallback{
+public final class VirtualViewTransform implements TransformCreator.OnCreateCallback {
 
     Context mCtx;
 
@@ -30,8 +31,9 @@ public final class VirtualViewTransform implements TransformCreator.OnCreateCall
 
     DataTree dataTree;
 
-    IEventTouchCallback mCallback;
+    IEventTouchCallback mTouchCallback;
 
+    IViewBindCallback mIViewBindCallback;
 
     HashMap<String, TransformRecord> transformRecord;
 
@@ -41,7 +43,7 @@ public final class VirtualViewTransform implements TransformCreator.OnCreateCall
         this.transformRecord = new HashMap<>(10);
     }
 
-    public void injectViewTree(@NonNull ViewTree viewTree){
+    public void injectViewTree(@NonNull ViewTree viewTree) {
         this.viewTree = viewTree;
 
         TransformCreator.createTransform(viewTree.rootView(), mCtx, this);
@@ -51,37 +53,48 @@ public final class VirtualViewTransform implements TransformCreator.OnCreateCall
         }
     }
 
-    public void injectDataTree(@NonNull DataTree dataTree){
+    public void injectDataTree(@NonNull DataTree dataTree) {
         this.dataTree = dataTree;
 
         for (TransformRecord value : transformRecord.values()) {
 
             Data data = dataTree.get(value.viewTag);
 
-            if (!DyvHelper.isNull(data)){
+            if (!DyvHelper.isNull(data)) {
 
                 value.transform.injectViewData(data);
             }
         }
     }
 
-    public void injectEventTree(@NonNull EventTree eventTree){
+    public void injectEventTree(@NonNull EventTree eventTree) {
         this.eventTree = eventTree;
 
         for (TransformRecord value : transformRecord.values()) {
 
             Event event = eventTree.get(value.viewTag);
 
-            if (!DyvHelper.isNull(event)){
+            if (!DyvHelper.isNull(event)) {
 
                 value.transform.injectViewEvent(event);
             }
         }
     }
 
+    public void injectImageBindCallback(IViewBindCallback bindCallback) {
+        this.mIViewBindCallback = bindCallback;
 
-    public void injectEventTouchCallback(IEventTouchCallback callback){
-        this.mCallback = callback;
+        for (TransformRecord value : transformRecord.values()) {
+
+            if (value.transform instanceof ImageTransform) {
+
+                value.transform.injectViewBindCallback(bindCallback);
+            }
+        }
+    }
+
+    public void injectEventTouchCallback(IEventTouchCallback callback) {
+        this.mTouchCallback = callback;
 
         for (TransformRecord value : transformRecord.values()) {
             value.transform.injectEventTouchCallback(callback);

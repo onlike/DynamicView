@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.lxy.dyv.DyvConstant;
 import com.lxy.dyv.DyvHelper;
+import com.lxy.dyv.IViewBindCallback;
 import com.lxy.dyv.NativeViewCreator;
 import com.lxy.dyv.transform.help.TransformHelper;
 import com.lxy.dyv.view.Image;
@@ -78,7 +79,7 @@ public class ImageTransform extends VTransform {
         if (DyvHelper.isNull(virtualView)) return;
 
         if (virtualView instanceof Image) {
-            TransformHelper.bindSpecialProperties(imageView, virtualView, viewData);
+            TransformHelper.bindSpecialProperties(imageView, virtualView, viewData, viewBindCallback);
         }
     }
 

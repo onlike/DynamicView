@@ -60,9 +60,16 @@ public final class DynamicView {
     }
 
     public void bindData() {
-        viewTransform.injectDataTree(dataTree);
-        viewTransform.injectEventTree(eventTree);
+        bindData(null);
+    }
 
+    public void bindData(IViewBindCallback bindCallback) {
+
+        viewTransform.injectImageBindCallback(bindCallback);
+
+        viewTransform.injectDataTree(dataTree);
+
+        viewTransform.injectEventTree(eventTree);
     }
 
     public void bindEventTouch(IEventTouchCallback eventTouchCallback) {

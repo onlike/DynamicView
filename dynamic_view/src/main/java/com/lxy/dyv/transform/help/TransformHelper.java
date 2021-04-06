@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lxy.dyv.DynamicMaster;
 import com.lxy.dyv.DyvConstant;
 import com.lxy.dyv.DyvHelper;
+import com.lxy.dyv.IViewBindCallback;
 import com.lxy.dyv.data.Data;
 import com.lxy.dyv.properties.SpecialProperties;
 import com.lxy.dyv.view.VirtualView;
@@ -35,6 +35,11 @@ public final class TransformHelper {
 
     public static void bindSpecialProperties(View targetView, VirtualView virtualView, Data data) {
 
+        bindSpecialProperties(targetView, virtualView, data, null);
+    }
+
+    public static void bindSpecialProperties(View targetView, VirtualView virtualView, Data data, IViewBindCallback bindCallback) {
+
         try {
 
             Class<?> clz = virtualView.getClass();
@@ -47,6 +52,13 @@ public final class TransformHelper {
 
                     String propertyKey = properties.key();
                     String methodName = properties.method();
+
+                    if (bindCallback != null) {
+
+                        if (bindCallback.viewBind(targetView, methodName, data.get(propertyKey))) {
+                            return;
+                        }
+                    }
 
                     _setSpecialProperties(targetView, methodName, data.get(propertyKey));
                 }
@@ -67,21 +79,15 @@ public final class TransformHelper {
         if (TextUtils.equals(methodName, DyvConstant.VIEW_METHOD_SET_TEXT)) {
 
             ((TextView) targetView).setText(propertyValue);
-        } else {
-
+        } else if (TextUtils.equals(methodName, DyvConstant.VIEW_METHOD_SET_IMAGE)) {
 
             ImageView imageView = (ImageView) targetView;
 
-            int bindType = DyvHelper.isURLValue(propertyValue) ?
+            int imgBindType = DyvHelper.isURLValue(propertyValue) ?
                     DyvConstant.IMAGE_BIND_TYPE_URL : DyvHelper.isColorValue(propertyValue) ?
                     DyvConstant.IMAGE_BIND_TYPE_COLOR : DyvConstant.IMAGE_BIND_TYPE_DRAWABLE;
 
-
-            if (DynamicMaster.imageBindListener.imageBind(imageView, propertyValue, bindType))
-                return;
-
-
-            switch (bindType) {
+            switch (imgBindType) {
 
                 case DyvConstant.IMAGE_BIND_TYPE_URL:
                     // just ignore

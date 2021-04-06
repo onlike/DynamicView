@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.lxy.dyv.DyvHelper;
 import com.lxy.dyv.IEventTouchCallback;
+import com.lxy.dyv.IViewBindCallback;
 import com.lxy.dyv.data.Data;
 import com.lxy.dyv.event.Event;
 import com.lxy.dyv.view.VirtualView;
@@ -26,6 +27,8 @@ abstract class VTransform implements View.OnClickListener{
     Event viewEvent;
 
     IEventTouchCallback eventTouchCallback;
+
+    IViewBindCallback viewBindCallback;
 
     public VTransform(Context mCtx) {
         this.mCtx = mCtx;
@@ -53,6 +56,10 @@ abstract class VTransform implements View.OnClickListener{
 
     public void injectEventTouchCallback(IEventTouchCallback eventTouchCallback){
         this.eventTouchCallback = eventTouchCallback;
+    }
+
+    public void injectViewBindCallback(IViewBindCallback viewBindCallback){
+        this.viewBindCallback = viewBindCallback;
     }
 
     @Override

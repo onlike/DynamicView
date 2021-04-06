@@ -14,19 +14,6 @@ import com.lxy.dyv.tree.ViewTreeCache;
  */
 public final class DynamicMaster {
 
-
-    public static ImageBindListener imageBindListener = new ImageBindListener() {
-        @Override
-        public boolean imageBind(ImageView imageView, String url, int bindType) {
-            return false;
-        }
-    };
-
-    public static void registerImageBindListener(ImageBindListener listener){
-        imageBindListener = listener;
-    }
-
-
     private static volatile DynamicMaster sInstance;
 
     private Application mApplication;

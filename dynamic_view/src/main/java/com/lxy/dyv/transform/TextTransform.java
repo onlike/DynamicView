@@ -80,7 +80,7 @@ public class TextTransform extends VTransform{
         if (DyvHelper.isNull(virtualView)) return;
 
         if (virtualView instanceof Text) {
-            TransformHelper.bindSpecialProperties(textView, virtualView, viewData);
+            TransformHelper.bindSpecialProperties(textView, virtualView, viewData, viewBindCallback);
         }
     }
 
