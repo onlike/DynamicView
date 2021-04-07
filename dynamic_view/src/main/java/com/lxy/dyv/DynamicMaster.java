@@ -48,6 +48,14 @@ public final class DynamicMaster {
         return builder;
     }
 
+    public static DynamicView.PreloadBuilder preload() {
+        if (sInstance == null) {
+            throw new IllegalStateException("must call DynamicMaster.init before get");
+        }
+
+        return new DynamicView.PreloadBuilder(sInstance.treeCache);
+    }
+
     private DynamicView.Builder obtainBuilder(ViewTreeCache treeCache){
         return new DynamicView.Builder(treeCache);
     }

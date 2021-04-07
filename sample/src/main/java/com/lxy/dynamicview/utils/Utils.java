@@ -110,7 +110,7 @@ public class Utils {
         return new Gson().fromJson(target, HashMap.class);
     }
 
-    public static <T> T toJSONList(String target, Class<T> clz){
+    public static <T> T toJSONObject(String target, Class<T> clz){
         return new Gson().fromJson(target, clz);
     }
 }

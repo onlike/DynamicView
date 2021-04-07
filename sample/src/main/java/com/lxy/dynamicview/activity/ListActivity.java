@@ -6,13 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import com.lxy.dynamicview.R;
 import com.lxy.dynamicview.adapter.ListAdapter;
 import com.lxy.dynamicview.bean.ContainerBean;
-import com.lxy.dynamicview.bean.ItemBean;
 import com.lxy.dynamicview.utils.OnDataResult;
 import com.lxy.dynamicview.utils.Utils;
 
@@ -47,6 +43,9 @@ public class ListActivity extends AppCompatActivity implements OnDataResult {
             @Override
             public void run() {
 
+
+                // simulation net request
+
                 String textImg = Utils.obtainDataForAssets(ListActivity.this, "left_text_right_image.json");
                 String threeImg = Utils.obtainDataForAssets(ListActivity.this, "three_image.json");
                 String text = Utils.obtainDataForAssets(ListActivity.this, "text.json");
@@ -80,7 +79,7 @@ public class ListActivity extends AppCompatActivity implements OnDataResult {
     @Override
     public void onDataResult(String result) {
 
-        ContainerBean containerBeans = Utils.toJSONList(result, ContainerBean.class);
+        ContainerBean containerBeans = Utils.toJSONObject(result, ContainerBean.class);
 
         mAdapter.setData(containerBeans.getData());
     }

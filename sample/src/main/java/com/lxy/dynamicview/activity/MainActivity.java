@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.lxy.dynamicview.R;
+import com.lxy.dynamicview.bean.ItemBean;
 import com.lxy.dynamicview.utils.OnDataResult;
 import com.lxy.dynamicview.utils.Utils;
 import com.lxy.dyv.DynamicMaster;
@@ -19,9 +20,6 @@ import com.lxy.dyv.IEventTouchCallback;
 import com.lxy.dyv.ViewBindCallbackAdapter;
 import com.lxy.dyv.data.Data;
 import com.lxy.dyv.event.Event;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataResult(String result) {
 
-                HashMap<String, Object> data = Utils.toJSONMap(result);
+                ItemBean netResult = Utils.toJSONObject(result, ItemBean.class);
 
                 DynamicView dynamicView = DynamicMaster.get(MainActivity.this)
-                        .injectViewData((Map<String, Object>) data.get("template"))
-                        .injectPropertiesData((Map<String, Object>) data.get("properties"))
+                        .injectViewData(netResult.getTemplate())
+                        .injectPropertiesData(netResult.getProperties())
                         .build();
 
                 View rootView = dynamicView.bindView();
@@ -92,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
+                // simulation net request
                 final String msg = Utils.obtainDataForAssets(MainActivity.this, "three_image.json");
 
                 runOnUiThread(new Runnable() {

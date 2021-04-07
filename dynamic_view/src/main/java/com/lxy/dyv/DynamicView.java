@@ -26,6 +26,7 @@ public final class DynamicView {
 
     Context mCtx;
 
+
     Map<String, Object> viewData;
 
     Map<String, Object> propertiesData;
@@ -53,6 +54,13 @@ public final class DynamicView {
         parse();
 
         viewTransform.injectViewTree(viewTree);
+    }
+
+    private DynamicView(ViewTreeCache treeCache, Map<String, Object> viewData) {
+        this.treeCache = treeCache;
+        this.viewData = viewData;
+
+        _parseViewTree();
     }
 
     public View bindView() {
@@ -143,5 +151,18 @@ public final class DynamicView {
             return new DynamicView(this);
         }
 
+    }
+
+    public static class PreloadBuilder{
+
+        ViewTreeCache treeCache;
+
+        public PreloadBuilder(ViewTreeCache treeCache) {
+            this.treeCache = treeCache;
+        }
+
+        public void injectViewTemplate(Map<String, Object> viewData){
+            new DynamicView(treeCache, viewData);
+        }
     }
 }
