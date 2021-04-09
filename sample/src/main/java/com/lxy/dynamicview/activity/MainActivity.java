@@ -17,6 +17,7 @@ import com.lxy.dyv.DynamicMaster;
 import com.lxy.dyv.DynamicView;
 import com.lxy.dyv.DyvConstant;
 import com.lxy.dyv.IEventTouchCallback;
+import com.lxy.dyv.IViewBindCallback;
 import com.lxy.dyv.ViewBindCallbackAdapter;
 import com.lxy.dyv.data.Data;
 import com.lxy.dyv.event.Event;
@@ -57,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
                 View rootView = dynamicView.bindView();
 
                 fraContent.addView(rootView);
+
+                dynamicView.bindData();
+
+                dynamicView.bindData(new IViewBindCallback() {
+                    @Override
+                    public boolean viewBind(View targetView, String method, String value) {
+                        return false;
+                    }
+                });
 
                 dynamicView.bindData(new ViewBindCallbackAdapter(){
                     @Override
