@@ -14,19 +14,18 @@
 
 <h3>a : import dynamic view library</h3>
 <p>at now, just provide libaray mode to import.</p>
-<code>
+<pre>
 implementation project(path: ':dynamic_view')
-</code>
+</pre>
 
 <h3> b : init dynamic view</h3>
 <p>must init it in your application.</p>
-<code>
+<pre>
 DynamicMaster.init(this);
-</code>
+</pre>
 
 <h3> c : load template</h3>
 <p>support preload template when you want to more fast display.</p>
-<code>
 <p><b>preload :</b></p>
 <pre>
 DynamicMaster.preload().injectViewTemplate(Map&lt;String, Object&gt; viewData);
@@ -39,40 +38,44 @@ DynamicView dynamicView = DynamicMaster.get(Context context)
 	.injectPropertiesData(Map&lt;String, Object&gt; propertiesData)
 	.build();
 </pre>
-</code>
 
 <h3> d : obtain root view and display in window</h3>
 <p>it's dynamic load,so you must prepare a display container.</p>
-<code>
+<pre>
 View templateRootView = dynamicView.bindView();
-<br/>
+
 contentContainer.addView(rootView);
-</code>
+</pre>
 
 <h3> e : bind data</h3>
 <p>support inject a callback with binding.</p>
-<code>
 <p><b>default binding :</b></p>
+<pre>
 dynamicView.bindData();
+</pre>
 
 <p><b>binding with callback :</b></p>
 <ol>
 <li>
 <p><b>origin callback,it will be return origin data</b></p>
+<pre>
 dynamicView.bindData(IViewBindCallback bindCallback);
+</pre>
 </li>
 
 <li>
 <p><b>simple callback,just handle different view bind</b></p>
+<pre>
 dynamicView.bindData(ViewBindCallbackAdapter vbcAdapter);
+</pre>
 </li>
 </ol>
-</code>
+
 
 <h3> f : monitor interface interactive</h3>
-<code>
+<pre>
 dynamicView.bindEventTouch(IEventTouchCallback eventTouchCallback);
-</code>
+</pre>
 
 
 <h2>2.How to create template ?</h2>
