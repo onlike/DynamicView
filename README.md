@@ -123,7 +123,7 @@ dynamicView.bindEventTouch(IEventTouchCallback eventTouchCallback);
 <h3>b : template details</h3>
 <table border="1" cellspacing="0" cellpadding="10" >
 <tr>
-<th colspan="3">VirtualView</th>
+<th colspan="3" align="center">VirtualView</th>
 </tr>
 
 <tr>
