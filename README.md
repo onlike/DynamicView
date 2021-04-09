@@ -1,117 +1,110 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>DynamicView</title>
-</head>
-<body>
+<h1>DynamicView</h1>
+<p>a simple frame of UI dynamic wtih android develop.</p>
+<ul>
+<li>server controll mobile applications UI style.</li>
+<li>percentage measure to keep Android and IOS different devices display uniformity.</li>
+<li>support preload to more fast display.</li>
+<li>cache template to prevent duplicate parsing.</li>
+</ul>
 
-	<h1>DynamicView</h1>
-	<p>a simple frame of UI dynamic wtih android develop.</p>
-	<ul>
-		<li>server controll mobile applications UI style.</li>
-		<li>percentage measure to keep Android and IOS different devices display uniformity.</li>
-		<li>support preload to more fast display.</li>	
-		<li>cache template to prevent duplicate parsing.</li>			
-	</ul>
+<h2>Screenshots</h2>
+<img src = "place holder" title = "sample screenshots"/>
 
-	<h2>Screenshots</h2>
-	<img src = "place holder" title = "sample screenshots"/>
+<h2>1.How to use?</h2>
 
-	<h2>1.How to use?</h2>
+<h3>a : import dynamic view library</h3>
+<p>at now, just provide libaray mode to import.</p>
+<code>
+implementation project(path: ':dynamic_view')
+</code>
 
-	<h3>a : import dynamic view library</h3>
-	<p>at now, just provide libaray mode to import.</p>
-	<code>
-		implementation project(path: ':dynamic_view')
-	</code>
+<h3> b : init dynamic view</h3>
+<p>must init it in your application.</p>
+<code>
+DynamicMaster.init(this);
+</code>
 
-	<h3> b : init dynamic view</h3>
-	<p>must init it in your application.</p>
-	<code>
-		DynamicMaster.init(this);
-	</code>
-
-	<h3> c : load template</h3>
-	<p>support preload template when you want to more fast display.</p>
-	<code>
-		<p><b>preload :</b></p>
-		<pre>
+<h3> c : load template</h3>
+<p>support preload template when you want to more fast display.</p>
+<code>
+<p><b>preload :</b></p>
+<pre>
 DynamicMaster.preload().injectViewTemplate(Map&lt;String, Object&gt; viewData);
-		</pre>
+</pre>
 
-		<p><b>defload :</b></p>
-		<pre>
+<p><b>defload :</b></p>
+<pre>
 DynamicView dynamicView = DynamicMaster.get(Context context)
 	.injectViewData(Map&lt;String, Object&gt; viewData)
 	.injectPropertiesData(Map&lt;String, Object&gt; propertiesData)
 	.build();
-		</pre>
-	</code>
+</pre>
+</code>
 
-	<h3> d : obtain root view and display in window</h3>
-	<p>it's dynamic load,so you must prepare a display container.</p>
-	<code>
-		View templateRootView = dynamicView.bindView();
-		<br/>
-		contentContainer.addView(rootView);
-	</code>
+<h3> d : obtain root view and display in window</h3>
+<p>it's dynamic load,so you must prepare a display container.</p>
+<code>
+View templateRootView = dynamicView.bindView();
+<br/>
+contentContainer.addView(rootView);
+</code>
 
-	<h3> e : bind data</h3>
-	<p>support inject a callback with binding.</p>
-	<code>
-		<p><b>default binding :</b></p>
-		dynamicView.bindData();
+<h3> e : bind data</h3>
+<p>support inject a callback with binding.</p>
+<code>
+<p><b>default binding :</b></p>
+dynamicView.bindData();
 
-		<p><b>binding with callback :</b></p>
-		<ol>
-			<li>
-				<p><b>origin callback,it will be return origin data</b></p>
-				dynamicView.bindData(IViewBindCallback bindCallback);
-			</li>
+<p><b>binding with callback :</b></p>
+<ol>
+<li>
+<p><b>origin callback,it will be return origin data</b></p>
+dynamicView.bindData(IViewBindCallback bindCallback);
+</li>
 
-			<li>
-				<p><b>simple callback,just handle different view bind</b></p>
-				dynamicView.bindData(ViewBindCallbackAdapter vbcAdapter);
-			</li>
-		</ol>
-	</code>
+<li>
+<p><b>simple callback,just handle different view bind</b></p>
+dynamicView.bindData(ViewBindCallbackAdapter vbcAdapter);
+</li>
+</ol>
+</code>
 
-	<h3> f : monitor interface interactive</h3>
-	<code>
-		dynamicView.bindEventTouch(IEventTouchCallback eventTouchCallback);
-	</code>
+<h3> f : monitor interface interactive</h3>
+<code>
+dynamicView.bindEventTouch(IEventTouchCallback eventTouchCallback);
+</code>
 
 
-	<h2>2.How to create template ?</h2>
+<h2>2.How to create template ?</h2>
 
-	<h3>a : template composition</h3>
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<th rowspan="2">template</th>
-			<td>viewTree</td>
-		</tr>
-		<tr>
-			<td>treeTag</td>
-		</tr>
+<h3>a : template composition</h3>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<th rowspan="2">template</th>
+<td>viewTree</td>
+</tr>
+<tr>
+<td>treeTag</td>
+</tr>
 
-		<tr>
-			<th rowspan="2">properties</th>
-			<td>data</td>
-		</tr>
-		<tr>
-			<td>event</td>
-		</tr>
-	</table>
+<tr>
+<th rowspan="2">properties</th>
+<td>data</td>
+</tr>
+<tr>
+<td>event</td>
+</tr>
+</table>
 
-	<ul>
-		<li>viewTree : view properties set.</li>
-		<li>treeTag : template identifier.</li>
-		<li>data : properties corresponding to view,use <b>viewTag</b> as a differentiator.</li>
-		<li>event : same as data.</li>
-	</ul>
+<ul>
+<li>viewTree : view properties set.</li>
+<li>treeTag : template identifier.</li>
+<li>data : properties corresponding to view,use <b>viewTag</b> as a differentiator.</li>
+<li>event : same as data.</li>
+</ul>
 
-	<p>eg : </p>
-	<pre>
+<p>eg : </p>
+<pre>
 {
   "template": {
     "viewTree": {},
@@ -122,356 +115,356 @@ DynamicView dynamicView = DynamicMaster.get(Context context)
     "event": {}
   }
 }
-	</pre>
+</pre>
 
-	<h3>b : template details</h3>
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<th colspan="3">VirtualView</th>
-		</tr>
+<h3>b : template details</h3>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<th colspan="3">VirtualView</th>
+</tr>
 
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td>tag</td>
-			<td align="center">String</td>
-			<td><b>viewTag,unique in template</b></td>						
-		</tr>
+<tr>
+<td>tag</td>
+<td align="center">String</td>
+<td><b>viewTag,unique in template</b></td>
+</tr>
 
-		<tr>
-			<td>type</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>view type</b>
-				<br/>
-				1001 : text
-				<br/>
-				1002 : image
-				<br/>
-				1003 : frame
-				<br/>
-				1004 : linear
-			</td>						
-		</tr>
+<tr>
+<td>type</td>
+<td align="center">int</td>
+<td align="left">
+<b>view type</b>
+<br/>
+1001 : text
+<br/>
+1002 : image
+<br/>
+1003 : frame
+<br/>
+1004 : linear
+</td>
+</tr>
 
-		<tr>
-			<td>width</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>view width</b>
-				<br/>
-				-1 : wrap of self
-				<br/>
-				-2 : full in container
-				<br/>
-				range(0, 100) : percent of screen width
+<tr>
+<td>width</td>
+<td align="center">double</td>
+<td align="left">
+<b>view width</b>
+<br/>
+-1 : wrap of self
+<br/>
+-2 : full in container
+<br/>
+range(0, 100) : percent of screen width
 
-			</td>						
-		</tr>
+</td>
+</tr>
 
-		<tr>
-			<td>height</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>view height</b>
-				<br/>
-				-1 : wrap of self
-				<br/>
-				-2 : full in container
-				<br/>
-				range(0, 100) : percent of screen height
+<tr>
+<td>height</td>
+<td align="center">double</td>
+<td align="left">
+<b>view height</b>
+<br/>
+-1 : wrap of self
+<br/>
+-2 : full in container
+<br/>
+range(0, 100) : percent of screen height
 
-			</td>						
-		</tr>
+</td>
+</tr>
 
-		<tr>
-			<td>selfGravity</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>view gravity of slef or child</b>
-				<br/>
-				3001 : top
-				<br/>
-				3002 : left
-				<br/>
-				3003 : bottom
-				<br/>
-				3004 : right
-				<br/>
-				3005 : center
-				<br/>
-				3006 : center_vertical
-				<br/>
-				3007 : center_horizontal							
-			</td>						
-		</tr>	
+<tr>
+<td>selfGravity</td>
+<td align="center">int</td>
+<td align="left">
+<b>view gravity of slef or child</b>
+<br/>
+3001 : top
+<br/>
+3002 : left
+<br/>
+3003 : bottom
+<br/>
+3004 : right
+<br/>
+3005 : center
+<br/>
+3006 : center_vertical
+<br/>
+3007 : center_horizontal
+</td>
+</tr>
 
-		<tr>
-			<td>layoutGravity</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>view gravity of container</b>
-				<br/>
-				3001 : top
-				<br/>
-				3002 : left
-				<br/>
-				3003 : bottom
-				<br/>
-				3004 : right
-				<br/>
-				3005 : center
-				<br/>
-				3006 : center_vertical
-				<br/>
-				3007 : center_horizontal							
-			</td>						
-		</tr>
+<tr>
+<td>layoutGravity</td>
+<td align="center">int</td>
+<td align="left">
+<b>view gravity of container</b>
+<br/>
+3001 : top
+<br/>
+3002 : left
+<br/>
+3003 : bottom
+<br/>
+3004 : right
+<br/>
+3005 : center
+<br/>
+3006 : center_vertical
+<br/>
+3007 : center_horizontal
+</td>
+</tr>
 
-		<tr>
-			<td>topMargin</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>top margin of container</b>
-				<br/>
-				range(0, 100) : percent of screen height
-			</td>						
-		</tr>
+<tr>
+<td>topMargin</td>
+<td align="center">double</td>
+<td align="left">
+<b>top margin of container</b>
+<br/>
+range(0, 100) : percent of screen height
+</td>
+</tr>
 
-		<tr>
-			<td>leftMargin</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>left margin of container</b>
-				<br/>
-				range(0, 100) : percent of screen width
-			</td>						
-		</tr>	
+<tr>
+<td>leftMargin</td>
+<td align="center">double</td>
+<td align="left">
+<b>left margin of container</b>
+<br/>
+range(0, 100) : percent of screen width
+</td>
+</tr>
 
-		<tr>
-			<td>rightMargin</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>right margin of container</b>
-				<br/>
-				range(0, 100) : percent of screen width
-			</td>						
-		</tr>
+<tr>
+<td>rightMargin</td>
+<td align="center">double</td>
+<td align="left">
+<b>right margin of container</b>
+<br/>
+range(0, 100) : percent of screen width
+</td>
+</tr>
 
-		<tr>
-			<td>bottomMargin</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>bottom margin of container</b>
-				<br/>
-				range(0, 100) : percent of screen height
-			</td>						
-		</tr>
+<tr>
+<td>bottomMargin</td>
+<td align="center">double</td>
+<td align="left">
+<b>bottom margin of container</b>
+<br/>
+range(0, 100) : percent of screen height
+</td>
+</tr>
 
-		<tr>
-			<td>topPadding</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>top padding of self bound</b>
-				<br/>
-				range(0, 100) : percent of screen height
-			</td>						
-		</tr>
+<tr>
+<td>topPadding</td>
+<td align="center">double</td>
+<td align="left">
+<b>top padding of self bound</b>
+<br/>
+range(0, 100) : percent of screen height
+</td>
+</tr>
 
-		<tr>
-			<td>leftPadding</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>left padding of self bound</b>
-				<br/>
-				range(0, 100) : percent of screen width
-			</td>						
-		</tr>	
+<tr>
+<td>leftPadding</td>
+<td align="center">double</td>
+<td align="left">
+<b>left padding of self bound</b>
+<br/>
+range(0, 100) : percent of screen width
+</td>
+</tr>
 
-		<tr>
-			<td>rightPadding</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>right padding of self bound</b>
-				<br/>
-				range(0, 100) : percent of screen width
-			</td>						
-		</tr>	
+<tr>
+<td>rightPadding</td>
+<td align="center">double</td>
+<td align="left">
+<b>right padding of self bound</b>
+<br/>
+range(0, 100) : percent of screen width
+</td>
+</tr>
 
-		<tr>
-			<td>bottomPadding</td>
-			<td align="center">double</td>
-			<td align="left">
-				<b>bottom padding of self bound</b>
-				<br/>
-				range(0, 100) : percent of screen height
-			</td>						
-		</tr>
+<tr>
+<td>bottomPadding</td>
+<td align="center">double</td>
+<td align="left">
+<b>bottom padding of self bound</b>
+<br/>
+range(0, 100) : percent of screen height
+</td>
+</tr>
 
-		<tr>
-			<td>bgColor</td>
-			<td align="center">String</td>
-			<td>
-				<b>view background color</b>
-				<br/>
-				hexadecimal color			
-			</td>	
-		</tr>
+<tr>
+<td>bgColor</td>
+<td align="center">String</td>
+<td>
+<b>view background color</b>
+<br/>
+hexadecimal color
+</td>
+</tr>
 
-		<tr>
-			<td>parentType</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>container type</b>
-				<br/>
-				1003 : frame
-				<br/>
-				1004 : linear
-			</td>						
-		</tr>		
-	</table>
-	<br/>
+<tr>
+<td>parentType</td>
+<td align="center">int</td>
+<td align="left">
+<b>container type</b>
+<br/>
+1003 : frame
+<br/>
+1004 : linear
+</td>
+</tr>
+</table>
+<br/>
 
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="3" align="center">
-				<b>Text</b> extends VirtualView
-			</td>
-		</tr>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="3" align="center">
+<b>Text</b> extends VirtualView
+</td>
+</tr>
 
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td>fontName</td>
-			<td align="center">String</td>
-			<td align="left">
-				<b>local font resources</b>	
-		</tr>	
+<tr>
+<td>fontName</td>
+<td align="center">String</td>
+<td align="left">
+<b>local font resources</b>
+</tr>
 
-		<tr>
-			<td>textColor</td>
-			<td align="center">String</td>
-			<td align="left">
-				<b>text content color</b>	
-		</tr>	
+<tr>
+<td>textColor</td>
+<td align="center">String</td>
+<td align="left">
+<b>text content color</b>
+</tr>
 
-		<tr>
-			<td>textSize</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>base of sp</b>	
-		</tr>	
+<tr>
+<td>textSize</td>
+<td align="center">int</td>
+<td align="left">
+<b>base of sp</b>
+</tr>
 
-		<tr>
-			<td>maxLines</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>end ellipsis after out of range</b>	
-		</tr>					
-	</table>
-	<br/>	
+<tr>
+<td>maxLines</td>
+<td align="center">int</td>
+<td align="left">
+<b>end ellipsis after out of range</b>
+</tr>
+</table>
+<br/>
 
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="3" align="center">
-				<b>Image</b> extends VirtualView
-			</td>
-		</tr>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="3" align="center">
+<b>Image</b> extends VirtualView
+</td>
+</tr>
 
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td>scaleType</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>image clipping mode</b>
-				<br/>
-				3301 : scale center
-				<br/>
-				3302 : scale fit
-			</td>						
-		</tr>				
-	</table>
-	<br/>	
+<tr>
+<td>scaleType</td>
+<td align="center">int</td>
+<td align="left">
+<b>image clipping mode</b>
+<br/>
+3301 : scale center
+<br/>
+3302 : scale fit
+</td>
+</tr>
+</table>
+<br/>
 
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="3" align="center">
-				<b>Container</b> extends VirtualView
-			</td>
-		</tr>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="3" align="center">
+<b>Container</b> extends VirtualView
+</td>
+</tr>
 
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td>child</td>
-			<td align="center">List&lt;? extends VirtualView&gt;</td>
-			<td align="left">
-				<b>child type must be a subclass of VirtualView</b>	
-			</td>	
-		</tr>	
-	</table>
-	<br/>	
+<tr>
+<td>child</td>
+<td align="center">List&lt;? extends VirtualView&gt;</td>
+<td align="left">
+<b>child type must be a subclass of VirtualView</b>
+</td>
+</tr>
+</table>
+<br/>
 
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="3" align="center">
-				<b>Linear</b> extends Container
-			</td>
-		</tr>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="3" align="center">
+<b>Linear</b> extends Container
+</td>
+</tr>
 
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td>orientation</td>
-			<td align="center">int</td>
-			<td align="left">
-				<b>place orientation</b>	
-				<br/>
-				3201 : vertical
-				<br/>
-				3202 : horizontal				
-			</td>	
-		</tr>	
-	</table>
-	<br/>	
+<tr>
+<td>orientation</td>
+<td align="center">int</td>
+<td align="left">
+<b>place orientation</b>
+<br/>
+3201 : vertical
+<br/>
+3202 : horizontal
+</td>
+</tr>
+</table>
+<br/>
 
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="3" align="center">
-				<b>Frame</b> extends Container
-			</td>
-		</tr>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="3" align="center">
+<b>Frame</b> extends Container
+</td>
+</tr>
 
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>value</th>
-		</tr>
-	</table>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
+</table>
 
-	<p>eg: </p>
-	<pre>
+<p>eg: </p>
+<pre>
 {
   "tag": "linear_1",
   "type": 1004,
@@ -525,73 +518,73 @@ DynamicView dynamicView = DynamicMaster.get(Context context)
     }
   ]
 }
-	</pre>
+</pre>
 
-	<h3>c : properties details</h3>
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="4" align="center">
-				<b>data</b>
-			</td>
-		</tr>
+<h3>c : properties details</h3>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="4" align="center">
+<b>data</b>
+</td>
+</tr>
 
-		<tr>
-			<th>viewTag</th>
-			<th>name</th>			
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>viewTag</th>
+<th>name</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td align="center">&lt; ? &gt;<br/><b>(same of target view's tag properties)</b></td>
-			<td>textContent</td>			
-			<td align="center">String</td>
-			<td align="left">
-				<b>text content</b>			
-			</td>	
-		</tr>	
+<tr>
+<td align="center">&lt; ? &gt;<br/><b>(same of target view's tag properties)</b></td>
+<td>textContent</td>
+<td align="center">String</td>
+<td align="left">
+<b>text content</b>
+</td>
+</tr>
 
-		<tr>
-			<td align="center">&lt; ? &gt;<br/><b>(same of target view's tag properties)</b></td>
-			<td>imgSource</td>			
-			<td align="center">String</td>
-			<td align="left">
-				<b>image resource</b>
-				<br/>
-				1.local icon resources(icon name)
-				<br/>
-				2.hexadecimal color
-				<br/>
-				3.server image resources(http | | https)
-			</td>	
-		</tr>			
-	</table>
-	<br/>
+<tr>
+<td align="center">&lt; ? &gt;<br/><b>(same of target view's tag properties)</b></td>
+<td>imgSource</td>
+<td align="center">String</td>
+<td align="left">
+<b>image resource</b>
+<br/>
+1.local icon resources(icon name)
+<br/>
+2.hexadecimal color
+<br/>
+3.server image resources(http | | https)
+</td>
+</tr>
+</table>
+<br/>
 
-	<table border="1" cellspacing="0" cellpadding="10" >
-		<tr>
-			<td colspan="3" align="center">
-				<b>event</b>
-			</td>
-		</tr>
+<table border="1" cellspacing="0" cellpadding="10" >
+<tr>
+<td colspan="3" align="center">
+<b>event</b>
+</td>
+</tr>
 
-		<tr>
-			<th>viewTag</th>		
-			<th>type</th>
-			<th>value</th>
-		</tr>
+<tr>
+<th>viewTag</th>
+<th>type</th>
+<th>value</th>
+</tr>
 
-		<tr>
-			<td align="center">&lt; ? &gt;<br/><b>(same of target view's tag properties)</b></td>
-			<td align="center">List&lt;String&gt;</td>
-			<td align="left">
-				<b>custom rules to user touch callback</b>			
-			</td>	
-		</tr>			
-	</table>	
+<tr>
+<td align="center">&lt; ? &gt;<br/><b>(same of target view's tag properties)</b></td>
+<td align="center">List&lt;String&gt;</td>
+<td align="left">
+<b>custom rules to user touch callback</b>
+</td>
+</tr>
+</table>
 
-	<p>eg: </p>
-	<pre>
+<p>eg: </p>
+<pre>
 {
   "data": {
     "text_1": {
@@ -617,25 +610,25 @@ DynamicView dynamicView = DynamicMaster.get(Context context)
     ]
   }
 }
-	</pre>
+</pre>
 
-	<h3>d : final assemble</h3>
-	<ol>
-		<li>
-			subclass of VirtualView assembale viewTree.
-		</li>
+<h3>d : final assemble</h3>
+<ol>
+<li>
+subclass of VirtualView assembale viewTree.
+</li>
 
-		<li>
-			viewTree and treeTag assembale template.
-		</li>
+<li>
+viewTree and treeTag assembale template.
+</li>
 
-		<li>
-			data and event assemble properties.
-		</li>
-	</ol>
+<li>
+data and event assemble properties.
+</li>
+</ol>
 
-	<p>eg: </p>
-	<pre>
+<p>eg: </p>
+<pre>
 {
   "template": {
     "viewTree": {
@@ -789,20 +782,17 @@ DynamicView dynamicView = DynamicMaster.get(Context context)
     }
   }
 }
-	</pre>
-	<h2>3.TODO</h2>
-	<ul>
-		<li>support maven center to import.</li>
-		<li>support more view.</li>
-		<li>enum properties support bitwise.</li>
-		<li>measure mode support percentage and specific value switching with template.</li>
-		<li>need a template editor and preview tools.</li>
-	</ul>
+</pre>
+<h2>3.TODO</h2>
+<ul>
+<li>support maven center to import.</li>
+<li>support more view.</li>
+<li>enum properties support bitwise.</li>
+<li>measure mode support percentage and specific value switching with template.</li>
+<li>need a template editor and preview tools.</li>
+</ul>
 
-	<h2>4.Document Resuorce</h2>
-	<ul>
-		<li><a href="">UI动态化解决方案与技术体系基础架构.pdf</a></li>
-	</ul>
-
-</body>
-</html>
+<h2>4.Document Resuorce</h2>
+<ul>
+<li><a href="">UI动态化解决方案与技术体系基础架构.pdf</a></li>
+</ul>
