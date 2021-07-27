@@ -797,5 +797,5 @@ data and event assemble properties.
 
 <h2>4.Document Resuorce</h2>
 <ul>
-<li><a href="">UI动态化解决方案与技术体系基础架构.pdf</a></li>
+<li><a href="https://github.com/onlike/DynamicView/tree/master/document">UI动态化解决方案与技术体系基础架构.pdf</a></li>
 </ul>

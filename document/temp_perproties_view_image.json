@@ -1,0 +1,19 @@
+{
+	"tag" : "image_1",
+	"type" : 1001,
+	"width" : -1,
+	"height" : 82,
+	"selfGravity" : 0,
+	"layoutGravity" : 0,
+	"topMargin" : 2,
+	"leftMargin" : 5,
+	"bottomMargin" : 2,
+	"rightMargin" : 5,
+	"bgColor" : "#ffeecc",
+	"parentType" : 1003,
+	"scaleType" : 3301,
+  	"topPadding":0,
+    "leftPadding":0,
+    "bottomPadding":0,
+    "rightPadding":0
+}
