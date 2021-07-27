@@ -8,7 +8,7 @@
 </ul>
 
 <h2>Screenshots</h2>
-<img src = "place holder" title = "sample screenshots"/>
+<video src="https://github.com/onlike/DynamicView/blob/master/screenshot/Video.mp4" controls="controls">不支持视频浏览</video>
 
 <h2>1.How to use?</h2>
 
@@ -190,19 +190,19 @@ range(0, 100) : percent of screen height
 <td align="left">
 <b>view gravity of slef or child</b>
 <br/>
-3001 : top
+3101 : top
 <br/>
-3002 : left
+3102 : left
 <br/>
-3003 : bottom
+3103 : bottom
 <br/>
-3004 : right
+3104 : right
 <br/>
-3005 : center
+3105 : center
 <br/>
-3006 : center_vertical
+3106 : center_vertical
 <br/>
-3007 : center_horizontal
+3107 : center_horizontal
 </td>
 </tr>
 
@@ -212,19 +212,19 @@ range(0, 100) : percent of screen height
 <td align="left">
 <b>view gravity of container</b>
 <br/>
-3001 : top
+3101 : top
 <br/>
-3002 : left
+3102 : left
 <br/>
-3003 : bottom
+3103 : bottom
 <br/>
-3004 : right
+3104 : right
 <br/>
-3005 : center
+3105 : center
 <br/>
-3006 : center_vertical
+3106 : center_vertical
 <br/>
-3007 : center_horizontal
+3107 : center_horizontal
 </td>
 </tr>
 
@@ -792,10 +792,11 @@ data and event assemble properties.
 <li>support more view.</li>
 <li>enum properties support bitwise.</li>
 <li>measure mode support percentage and specific value switching with template.</li>
+<li>template content compression.</li>
 <li>need a template editor and preview tools.</li>
 </ul>
 
-<h2>4.Document Resuorce</h2>
+<h2>4.Document Resource</h2>
 <ul>
-<li><a href="https://github.com/onlike/DynamicView/tree/master/document">UI动态化解决方案与技术体系基础架构.pdf</a></li>
+<li><a href="https://github.com/onlike/DynamicView/tree/master/document">docs</a></li>
 </ul>
