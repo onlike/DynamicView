@@ -8,7 +8,9 @@
 </ul>
 
 <h2>Screenshots</h2>
-<video src="https://github.com/onlike/DynamicView/blob/master/screenshot/Video.mp4" controls="controls">不支持视频浏览</video>
+<video src="" controls="controls">不支持视频浏览</video>
+<video width="320" height="240" controls="controls" autoplay="autoplay"><source src="https://github.com/onlike/DynamicView/blob/master/screenshot/Video.mp4" type="video/mp4" /></video>
+
 
 <h2>1.How to use?</h2>
 
